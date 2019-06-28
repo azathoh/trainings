@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41c5ad6c-ab75-4add-8b24-5cbbec93a3d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:64080/crm" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="crm.xsd" MetadataType="Schema" ID="9ebca41b-839a-4a60-bf40-4e3eab543762" SourceId="1" SourceUrl="http://localhost:64080/crm?xsd=xsd0" />
+    <MetadataFile FileName="CrmRepositoryService.wsdl" MetadataType="Wsdl" ID="ee180dd6-fd0e-43dd-a0ce-ce4125b7b471" SourceId="1" SourceUrl="http://localhost:64080/crm?wsdl" />
+    <MetadataFile FileName="crm1.xsd" MetadataType="Schema" ID="b0dbce9a-3891-406f-b501-320d48649778" SourceId="1" SourceUrl="http://localhost:64080/crm?xsd=xsd1" />
+    <MetadataFile FileName="crm2.xsd" MetadataType="Schema" ID="6e165fa1-23b5-4197-86f5-1c4209b3675b" SourceId="1" SourceUrl="http://localhost:64080/crm?xsd=xsd2" />
+    <MetadataFile FileName="crm.disco" MetadataType="Disco" ID="e9b06017-3728-4b57-b347-44dc6c9c1cb5" SourceId="1" SourceUrl="http://localhost:64080/crm?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

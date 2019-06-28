@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CrmRepositoryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ICRMRepositorySAL_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <cdp:CompositeDuplex xmlns:cdp="http://schemas.microsoft.com/net/2006/06/duplex" />
+        <ow:OneWay xmlns:ow="http://schemas.microsoft.com/ws/2005/05/routing/policy" />
+        <wsam:Addressing>
+          <wsp:Policy>
+            <wsam:NonAnonymousResponses />
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:64080/crm?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:64080/crm?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64080/crm?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Contracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICRMRepositorySAL_GetAllCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompanies" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_GetAllCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_GetAllEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_GetAllEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_GetEmployeesByCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesByCompany" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_GetEmployeesByCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesByCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompany" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddEmployeeToCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeToCompany" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_AddEmployeeToCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeToCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_KeepAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:KeepAlive" />
+  </wsdl:message>
+  <wsdl:message name="ICRMRepositorySAL_Signal_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Signal" />
+  </wsdl:message>
+  <wsdl:portType name="ICRMRepositorySAL">
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetAllCompanies" message="tns:ICRMRepositorySAL_GetAllCompanies_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetAllCompaniesResponse" message="tns:ICRMRepositorySAL_GetAllCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetAllEmployees" message="tns:ICRMRepositorySAL_GetAllEmployees_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetAllEmployeesResponse" message="tns:ICRMRepositorySAL_GetAllEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByCompany">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetEmployeesByCompany" message="tns:ICRMRepositorySAL_GetEmployeesByCompany_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/GetEmployeesByCompanyResponse" message="tns:ICRMRepositorySAL_GetEmployeesByCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddCompany" message="tns:ICRMRepositorySAL_AddCompany_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddCompanyResponse" message="tns:ICRMRepositorySAL_AddCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddEmployee" message="tns:ICRMRepositorySAL_AddEmployee_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddEmployeeResponse" message="tns:ICRMRepositorySAL_AddEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeToCompany">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddEmployeeToCompany" message="tns:ICRMRepositorySAL_AddEmployeeToCompany_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/AddEmployeeToCompanyResponse" message="tns:ICRMRepositorySAL_AddEmployeeToCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <wsdl:input wsam:Action="http://tempuri.org/ICRMRepositorySAL/KeepAlive" message="tns:ICRMRepositorySAL_KeepAlive_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Signal">
+      <wsdl:output wsam:Action="http://tempuri.org/ICRMRepositorySAL/Signal" message="tns:ICRMRepositorySAL_Signal_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSDualHttpBinding_ICRMRepositorySAL" type="tns:ICRMRepositorySAL">
+    <wsp:PolicyReference URI="#WSDualHttpBinding_ICRMRepositorySAL_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCompanies">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByCompany">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/GetEmployeesByCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/AddCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/AddEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeToCompany">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/AddEmployeeToCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/KeepAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Signal">
+      <soap12:operation soapAction="http://tempuri.org/ICRMRepositorySAL/Signal" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CrmRepositoryService">
+    <wsdl:port name="WSDualHttpBinding_ICRMRepositorySAL" binding="tns:WSDualHttpBinding_ICRMRepositorySAL">
+      <soap12:address location="http://localhost:64080/crm" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:64080/crm</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
